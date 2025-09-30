@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lajuanita-website/static/css/main.95a1b057.css",
+    "main.js": "/lajuanita-website/static/js/main.aad5bf2f.js",
+    "static/js/453.d7446e4a.chunk.js": "/lajuanita-website/static/js/453.d7446e4a.chunk.js",
+    "index.html": "/lajuanita-website/index.html",
+    "main.95a1b057.css.map": "/lajuanita-website/static/css/main.95a1b057.css.map",
+    "main.aad5bf2f.js.map": "/lajuanita-website/static/js/main.aad5bf2f.js.map",
+    "453.d7446e4a.chunk.js.map": "/lajuanita-website/static/js/453.d7446e4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95a1b057.css",
+    "static/js/main.aad5bf2f.js"
+  ]
+}
