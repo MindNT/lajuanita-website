@@ -1,0 +1,86 @@
+import React, { useState } from 'react';
+import WhiteButton from '../utils/WhiteButton';
+import WhiteTagsTrans from '../utils/WhiteTagsTrans';
+import WhiteButtonTrans from '../utils/WhiteButtonTrans';
+
+const HeroSection = () => {
+  const [activeCategory, setActiveCategory] = useState('platos fuertes');
+
+  const categories = [
+    { name: 'platos fuertes', image: '/images/chilesrellenos.png' },
+    { name: 'Guarniciones', image: '/images/chilesrellenos.png' },
+    { name: 'Caldos', image: '/images/chilesrellenos.png' },
+    { name: 'Ensaladas', image: '/images/chilesrellenos.png' },
+    { name: 'Bebidas', image: '/images/chilesrellenos.png' },
+    { name: 'Postres', image: '/images/chilesrellenos.png' }
+  ];
+
+  const getCurrentImage = () => {
+    const category = categories.find(cat => cat.name === activeCategory);
+    return category ? category.image : '/images/chilesrellenos.jpg';
+  };
+
+  const scrollToMenu = () => {
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="container mx-auto px-6 py-16">
+      {/* Main content */}
+      <div className="flex w-full items-center min-h-screen flex-col">
+        <div className="flex w-full items-center flex-1">
+          {/* Left content */}
+          <div className="w-1/2 text-left space-y-6">
+            {/* Main heading */}
+            <h1 className="text-white text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
+              El verdadero sabor casero
+            </h1>
+            
+            {/* Tags */}
+            <div className="flex gap-4 flex-wrap">
+              <WhiteTagsTrans text="Pick Up" />
+              <WhiteTagsTrans text="Lunes - viernes" />
+              <WhiteTagsTrans text="8:00 AM - 5:00 PM" />
+            </div>
+            
+            {/* Description */}
+            <p className="text-white text-lg leading-relaxed max-w-lg">
+              En nuestro rincón de cocina casera, cada plato se prepara con amor, ingredientes frescos y recetas que vienen directo del corazón. Aquí no servimos solo comida… servimos recuerdos, tradición y ese sazón que solo se encuentra en casa.
+            </p>
+            
+            {/* Button */}
+            <div onClick={scrollToMenu}>
+              <WhiteButton text="Conocer el menu" className="mt-6" />
+            </div>
+          </div>
+          
+          {/* Right image */}
+          <div className="w-1/2 flex justify-end">
+            <img 
+              src={getCurrentImage()}
+              alt="Comida casera" 
+              className="max-w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Category buttons */}
+        <div className="flex justify-between gap-4 flex-wrap w-full">
+          {categories.map((category) => (
+            <WhiteButtonTrans
+              key={category.name}
+              text={category.name}
+              isActive={activeCategory === category.name}
+              onClick={() => setActiveCategory(category.name)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
