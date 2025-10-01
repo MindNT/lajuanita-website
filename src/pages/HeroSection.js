@@ -28,47 +28,47 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="container mx-auto px-4 md:px-6 py-8 md:py-16 pt-20 md:pt-8">
       {/* Main content */}
       <div className="flex w-full items-center min-h-screen flex-col">
-        <div className="flex w-full items-center flex-1">
+        <div className="flex w-full items-center flex-1 flex-col md:flex-row">
           {/* Left content */}
-          <div className="w-1/2 text-left space-y-6">
+          <div className="w-full md:w-1/2 text-center md:text-left space-y-4 md:space-y-6 mb-8 md:mb-0">
             {/* Main heading */}
-            <h1 className="text-white text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
+            <h1 className="text-white text-3xl md:text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
               El verdadero sabor casero
             </h1>
             
             {/* Tags */}
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-2 md:gap-4 flex-wrap justify-center md:justify-start">
               <WhiteTagsTrans text="Pick Up" />
               <WhiteTagsTrans text="Lunes - viernes" />
               <WhiteTagsTrans text="8:00 AM - 5:00 PM" />
             </div>
             
             {/* Description */}
-            <p className="text-white text-lg leading-relaxed max-w-lg">
+            <p className="text-white text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
               En nuestro rincón de cocina casera, cada plato se prepara con amor, ingredientes frescos y recetas que vienen directo del corazón. Aquí no servimos solo comida… servimos recuerdos, tradición y ese sazón que solo se encuentra en casa.
             </p>
             
             {/* Button */}
-            <div onClick={scrollToMenu}>
-              <WhiteButton text="Conocer el menu" className="mt-6" />
+            <div onClick={scrollToMenu} className="flex justify-center md:justify-start">
+              <WhiteButton text="Conocer el menu" className="mt-4 md:mt-6" />
             </div>
           </div>
           
           {/* Right image */}
-          <div className="w-1/2 flex justify-end">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <img 
               src={getCurrentImage()}
               alt="Comida casera" 
-              className="max-w-full h-auto object-cover"
+              className="max-w-full h-auto object-cover max-h-64 md:max-h-none"
             />
           </div>
         </div>
 
         {/* Category buttons */}
-        <div className="flex justify-between gap-4 flex-wrap w-full">
+        <div className="flex justify-center md:justify-between gap-2 md:gap-4 flex-wrap w-full mt-8 md:mt-0">
           {categories.map((category) => (
             <WhiteButtonTrans
               key={category.name}

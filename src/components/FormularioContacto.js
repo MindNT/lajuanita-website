@@ -22,8 +22,8 @@ const FormularioContacto = () => {
   };
 
   return (
-    <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         <div>
           <label htmlFor="nombre" className="block text-white text-sm font-medium mb-2">
             Nombre completo
@@ -34,7 +34,7 @@ const FormularioContacto = () => {
             name="nombre"
             value={formData.nombre}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             placeholder="Tu nombre completo"
             required
           />
@@ -50,7 +50,7 @@ const FormularioContacto = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             placeholder="tu@email.com"
             required
           />
@@ -66,7 +66,7 @@ const FormularioContacto = () => {
             name="telefono"
             value={formData.telefono}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             placeholder="Tu número de teléfono"
           />
         </div>
@@ -81,7 +81,7 @@ const FormularioContacto = () => {
             value={formData.mensaje}
             onChange={handleChange}
             rows="4"
-            className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 resize-none"
+            className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 resize-none"
             placeholder="Cuéntanos cómo podemos ayudarte..."
             required
           ></textarea>
@@ -89,7 +89,7 @@ const FormularioContacto = () => {
 
         <button
           type="submit"
-          className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50"
+          className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-medium py-3 px-4 sm:px-6 text-sm sm:text-base rounded-lg transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50"
         >
           Enviar mensaje
         </button>

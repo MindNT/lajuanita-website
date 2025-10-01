@@ -34,15 +34,15 @@ const ClientesSection = () => {
   const locationIconPath = "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z";
 
   return (
-    <section className="w-full py-16 px-8">
+    <section className="w-full py-6 sm:py-16 px-3 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Título centrado */}
-        <h2 className="text-center text-white text-5xl font-bold font-inter mb-12">
+        <h2 className="text-center text-white text-2xl sm:text-4xl lg:text-5xl font-bold font-inter mb-4 sm:mb-8 px-2">
           Por qué nuestros clientes nos escogen
         </h2>
         
         {/* Grid de comentarios */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 mb-6 sm:mb-12">
           {comments.map((comment) => (
             <CommentCard
               key={comment.id}
@@ -54,13 +54,13 @@ const ClientesSection = () => {
         </div>
 
         {/* Botón de Google Maps centrado */}
-        <div className="flex justify-center">
+        <div className="flex justify-center px-2 sm:px-4">
           <WhiteButtonIcon
             text="Visítanos en Google Maps"
             iconPath={locationIconPath}
             onClick={handleGoogleMapsClick}
-            className="text-lg px-8 py-4"
-            iconSize={24}
+            className="text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4 w-full sm:w-auto max-w-xs sm:max-w-none"
+            iconSize={20}
           />
         </div>
       </div>

@@ -140,15 +140,15 @@ const MenuSection = () => {
   };
 
   return (
-    <section className="w-full py-16 px-8">
+    <section className="w-full py-6 sm:py-16 px-3 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Título */}
-        <h2 className="text-white text-5xl font-bold font-inter mb-8 text-left">
+        <h2 className="text-white text-2xl sm:text-4xl lg:text-5xl font-bold font-inter mb-4 sm:mb-8 text-left">
           Descubre nuestro menú
         </h2>
         
         {/* Botones de categorías */}
-        <div className="flex justify-start gap-4 mb-12">
+        <div className="flex justify-start gap-2 sm:gap-4 mb-6 sm:mb-12 overflow-x-auto pb-2">
           {categories.map((category) => (
             <WhiteButtonMenu
               key={category.id}
@@ -160,15 +160,15 @@ const MenuSection = () => {
         </div>
 
         {/* Grid de productos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
           {menuData[activeCategory].map((item) => (
             <ProductCard
               key={item.id}
+              id={item.id}
               image={item.image}
               title={item.title}
               description={item.description}
               price={item.price}
-              onAddClick={() => handleAddClick(item.id)}
             />
           ))}
         </div>

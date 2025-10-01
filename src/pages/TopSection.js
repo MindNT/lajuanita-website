@@ -58,42 +58,42 @@ const TopSection = () => {
   };
 
   return (
-    <section className="w-full bg-black bg-opacity-60 shadow-lg py-16 px-8">
+    <section className="w-full bg-black bg-opacity-60 shadow-lg py-6 sm:py-16 px-3 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Título principal */}
-        <h2 className="text-center text-white text-5xl font-bold font-inter mb-12">
+        <h2 className="text-center text-white text-2xl sm:text-4xl lg:text-5xl font-bold font-inter mb-6 sm:mb-12">
           Disfruta nuestros platillos más populares
         </h2>
         
         {/* Grid de platillos populares */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 mb-8 sm:mb-16">
           {popularDishes.map((dish) => (
             <ProductCard
               key={dish.id}
+              id={dish.id}
               image={dish.image}
               title={dish.title}
               description={dish.description}
               price={dish.price}
-              onAddClick={() => handleAddClick(dish.id)}
             />
           ))}
         </div>
 
         {/* Título de promociones */}
-        <h2 className="text-center text-white text-5xl font-bold font-inter mb-12">
+        <h2 className="text-center text-white text-2xl sm:text-4xl lg:text-5xl font-bold font-inter mb-6 sm:mb-12">
           Conoce nuestras promociones
         </h2>
         
         {/* Grid de promociones */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
           {promotions.map((promo) => (
             <ProductCard
               key={promo.id}
+              id={promo.id}
               image={promo.image}
               title={promo.title}
               description={promo.description}
               price={promo.price}
-              onAddClick={() => handleAddClick(promo.id)}
             />
           ))}
         </div>
