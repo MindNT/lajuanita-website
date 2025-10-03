@@ -71,12 +71,12 @@ const Navbar = ({ onCartClick }) => {
                 >
                   Inicio
                 </button>
-                <button 
+                {/*<button 
                   onClick={() => scrollToSection('destacados')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
                   Destacados
-                </button>
+                </button>*/}
                 <button 
                   onClick={() => scrollToSection('menu')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
@@ -96,7 +96,7 @@ const Navbar = ({ onCartClick }) => {
 
               {/* Right navigation items */}
               <div className="flex items-center space-x-10">
-                <button 
+                {/*<button 
                   onClick={() => scrollToSection('opiniones')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
@@ -113,7 +113,7 @@ const Navbar = ({ onCartClick }) => {
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
                   Redes Sociales
-                </button>
+                </button>*/}
                 
                 {/* Cart button - Desktop */}
                 <button

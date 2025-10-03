@@ -12,83 +12,17 @@ const ModalBilling = ({ isOpen, onClose }) => {
     time: ''
   });
 
-  const getMinTime = () => {
-    const now = new Date();
-    const minTime = new Date(now.getTime() + 30 * 60 * 1000); // Add 30 minutes
-    const hours = minTime.getHours();
-    const minutes = minTime.getMinutes();
-    
-    // If current time + 30 min is before 12:00 PM, set to 12:00 PM
-    if (hours < 12) {
-      return "12:00";
-    }
-    // If current time + 30 min is after 3:00 PM, return null (no valid time today)
-    if (hours >= 15) {
-      return null;
-    }
-    
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  };
-
-  const getAvailableHours = () => {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinutes = now.getMinutes();
-    const minTimeNeeded = new Date(now.getTime() + 30 * 60 * 1000);
-    
-    const hours = [];
-    for (let hour = 12; hour <= 15; hour++) {
-      // If it's today and we need 30 min advance, check if this hour is still available
-      if (hour > minTimeNeeded.getHours() || 
-          (hour === minTimeNeeded.getHours() && hour < 15)) {
-        hours.push(hour);
-      } else if (hour === 12 && currentHour < 12) {
-        hours.push(hour);
-      }
-    }
-    return hours;
-  };
-
-  const getAvailableMinutes = (selectedHour) => {
-    const now = new Date();
-    const minTimeNeeded = new Date(now.getTime() + 30 * 60 * 1000);
-    const minutes = [];
-    
-    // Generate minutes in 10-minute intervals
-    for (let minute = 0; minute < 60; minute += 10) {
-      if (selectedHour > minTimeNeeded.getHours() || 
-          (selectedHour === minTimeNeeded.getHours() && minute >= minTimeNeeded.getMinutes())) {
-        minutes.push(minute);
-      } else if (selectedHour < minTimeNeeded.getHours()) {
-        minutes.push(minute);
-      }
-    }
-    return minutes;
-  };
-
-  const formatTime = (hour, minute) => {
-    return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-  };
-
-  const formatDisplayTime = (hour, minute) => {
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const displayHour = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
-    return `${displayHour}:${minute.toString().padStart(2, '0')} ${ampm}`;
-  };
-
   React.useEffect(() => {
     if (isOpen) {
       const now = new Date();
+      const tomorrow = new Date(now.getTime() + 60 * 60 * 1000); // 1 hour ahead
       const defaultDate = now.toISOString().split('T')[0];
-      const availableHours = getAvailableHours();
-      const defaultHour = availableHours.length > 0 ? availableHours[0] : 12;
-      const availableMinutes = getAvailableMinutes(defaultHour);
-      const defaultMinute = availableMinutes.length > 0 ? availableMinutes[0] : 0;
+      const defaultTime = tomorrow.toTimeString().slice(0, 5);
       
       setCustomerInfo(prev => ({
         ...prev,
         date: defaultDate,
-        time: formatTime(defaultHour, defaultMinute)
+        time: defaultTime
       }));
     }
   }, [isOpen]);
@@ -104,43 +38,10 @@ const ModalBilling = ({ isOpen, onClose }) => {
   };
 
   const handleInputChange = (field, value) => {
-    if (field === 'time') {
-      // Validate time is between 12:00 PM and 3:00 PM
-      const [hours, minutes] = value.split(':').map(Number);
-      const timeInMinutes = hours * 60 + minutes;
-      const minTimeAllowed = 12 * 60; // 12:00 PM
-      const maxTimeAllowed = 15 * 60; // 3:00 PM
-      
-      if (timeInMinutes < minTimeAllowed || timeInMinutes > maxTimeAllowed) {
-        alert('Solo puedes seleccionar horarios entre las 12:00 PM y las 3:00 PM');
-        return;
-      }
-      
-      // Validate minimum time (current time + 30 minutes)
-      const minTime = getMinTime();
-      if (minTime && value < minTime) {
-        alert('Debes seleccionar una hora con al menos 30 minutos de anticipación');
-        return;
-      }
-    }
-    
     setCustomerInfo(prev => ({
       ...prev,
       [field]: value
     }));
-  };
-
-  const handleTimeChange = (hour, minute) => {
-    const timeString = formatTime(hour, minute);
-    setCustomerInfo(prev => ({
-      ...prev,
-      time: timeString
-    }));
-  };
-
-  const getCurrentTimeValues = () => {
-    const [hours, minutes] = customerInfo.time.split(':').map(Number);
-    return { hours, minutes };
   };
 
   const formatOrderForWhatsApp = () => {
@@ -167,14 +68,7 @@ const ModalBilling = ({ isOpen, onClose }) => {
       return;
     }
     
-    // Validate time again before sending
-    const minTime = getMinTime();
-    if (minTime && customerInfo.time < minTime) {
-      alert('Debes seleccionar una hora con al menos 30 minutos de anticipación');
-      return;
-    }
-    
-    const whatsappNumber = '525659105865'; // Replace with actual number
+    const whatsappNumber = '5555555555'; // Replace with actual number
     const message = formatOrderForWhatsApp();
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
@@ -184,12 +78,12 @@ const ModalBilling = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-3 py-6 sm:p-4 sm:py-8 md:py-12">
-      <div className="relative bg-gradient-to-b from-red-900 via-red-800 to-red-950 rounded-xl sm:rounded-2xl shadow-2xl max-w-xs sm:max-w-sm md:max-w-lg w-full mx-2 my-2 sm:mx-4 sm:my-4 md:my-8 overflow-hidden border-2 sm:border-4 border-white max-h-[85vh] sm:max-h-[80vh] lg:max-h-[85vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4 py-4 sm:py-8">
+      <div className="relative bg-gradient-to-b from-red-900 via-red-800 to-red-950 rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-lg mx-2 sm:mx-4 my-2 sm:my-4 overflow-hidden border-2 sm:border-4 border-white max-h-[95vh] sm:max-h-[90vh] lg:max-h-[85vh] overflow-y-auto">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-white hover:text-gray-300 transition-colors z-10 p-1 rounded-full touch-manipulation"
+          className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-white hover:text-gray-300 transition-colors z-10 p-1 sm:p-0"
         >
           <svg className="w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -271,52 +165,20 @@ const ModalBilling = ({ isOpen, onClose }) => {
                   className="w-full p-3 sm:p-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 border border-white border-opacity-30 focus:border-opacity-60 focus:outline-none transition-all"
                 />
                 
-                <div className="space-y-2">
-                  <label className="text-white text-sm font-medium block">Recogeré a las:</label>
-                  <div className="text-xs text-white opacity-75 mb-2">
-                    Horario disponible: 12:00 PM - 3:00 PM (mínimo 30 min de anticipación)
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <input
+                    type="date"
+                    value={customerInfo.date}
+                    onChange={(e) => handleInputChange('date', e.target.value)}
+                    className="p-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:border-opacity-60 focus:outline-none transition-all"
+                  />
                   
-                  <div className="grid grid-cols-2 gap-3">
-                    {/* Hour Selector */}
-                    <div>
-                      <label className="text-white text-xs mb-1 block opacity-80">Hora</label>
-                      <select
-                        value={getCurrentTimeValues().hours}
-                        onChange={(e) => handleTimeChange(parseInt(e.target.value), getCurrentTimeValues().minutes)}
-                        className="w-full p-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:border-opacity-60 focus:outline-none transition-all appearance-none cursor-pointer"
-                      >
-                        {getAvailableHours().map(hour => (
-                          <option key={hour} value={hour} className="bg-red-900 text-white">
-                            {hour > 12 ? hour - 12 : hour === 0 ? 12 : hour} {hour >= 12 ? 'PM' : 'AM'}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Minute Selector */}
-                    <div>
-                      <label className="text-white text-xs mb-1 block opacity-80">Minutos</label>
-                      <select
-                        value={getCurrentTimeValues().minutes}
-                        onChange={(e) => handleTimeChange(getCurrentTimeValues().hours, parseInt(e.target.value))}
-                        className="w-full p-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:border-opacity-60 focus:outline-none transition-all appearance-none cursor-pointer"
-                      >
-                        {getAvailableMinutes(getCurrentTimeValues().hours).map(minute => (
-                          <option key={minute} value={minute} className="bg-red-900 text-white">
-                            {minute.toString().padStart(2, '0')}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Display selected time */}
-                  <div className="text-center mt-2">
-                    <div className="inline-block bg-white bg-opacity-20 rounded-lg px-3 py-1 text-white text-sm font-medium">
-                      Hora seleccionada: {formatDisplayTime(getCurrentTimeValues().hours, getCurrentTimeValues().minutes)}
-                    </div>
-                  </div>
+                  <input
+                    type="time"
+                    value={customerInfo.time}
+                    onChange={(e) => handleInputChange('time', e.target.value)}
+                    className="p-3 text-sm sm:text-base rounded-lg bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:border-opacity-60 focus:outline-none transition-all"
+                  />
                 </div>
               </div>
 

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import { toast } from 'sonner';
 
 const CartContext = createContext();
 
@@ -52,7 +53,22 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { items: [] });
 
   const addItem = (item) => {
+    const existingItem = state.items.find(existingItem => existingItem.id === item.id);
+    
     dispatch({ type: 'ADD_ITEM', payload: item });
+    
+    // Show toast notification
+    if (existingItem) {
+      toast.success(`Se agregó otro ${item.title} al carrito`, {
+        description: `Cantidad: ${existingItem.quantity + 1}`,
+        duration: 3000,
+      });
+    } else {
+      toast.success(`${item.title} agregado al carrito`, {
+        description: `$${item.price}`,
+        duration: 3000,
+      });
+    }
   };
 
   const removeItem = (itemId) => {

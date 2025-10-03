@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
+import { Toaster } from 'sonner';
 import Navbar from './components/Navbar';
 import HeroSection from './pages/HeroSection';
 import TopSection from './pages/TopSection';
@@ -43,8 +44,22 @@ function App() {
       <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-800 to-red-950 relative overflow-hidden" 
            style={{background: 'linear-gradient(180deg, #820000 0%, #860000 50%, #200000 100%)'}}>
         
+        {/* Toast notifications */}
+        <Toaster 
+          position="top-right" 
+          richColors 
+          closeButton
+          toastOptions={{
+            style: {
+              background: '#fff',
+              color: '#000',
+              border: '1px solid #e5e7eb',
+            },
+          }}
+        />
+        
         {/* Modal de bienvenida */}
-        <ModalBeta isOpen={showWelcomeModal} onClose={handleCloseModal} />
+        {/*<ModalBeta isOpen={showWelcomeModal} onClose={handleCloseModal} />*/}
         
         {/* Modal de facturación */}
         <ModalBilling isOpen={showBillingModal} onClose={handleCloseBilling} />
@@ -100,25 +115,25 @@ function App() {
           <div id="hero">
             <HeroSection />
           </div>
-          <div id="destacados">
+          {/*<div id="destacados">
             <TopSection />
-          </div>
+          </div>*/}
           <div id="menu">
             <MenuSection />
           </div>
-          <ComboSection />
-          <div id="opiniones">
+          {/*<ComboSection />*/}
+          {/*<div id="opiniones">
             <ClientesSection />
-          </div>
-          <div id="galeria">
+          </div>*/}
+          {/*<div id="galeria">
             <GallerySection />
-          </div>
+          </div>*/}
           {/*<div id="contacto">
             <ContactoSection />
           </div>*/}
-          <div id="footer">
+          {/*<div id="footer">
             <Footer />
-          </div>
+          </div>*/}
         </div>
       </div>
     </CartProvider>

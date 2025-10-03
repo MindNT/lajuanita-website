@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import WhiteButtonMenu from '../utils/WhiteButtonMenu';
+import { useCart } from '../context/CartContext';
 
 const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState('platillos');
+  const { addItem } = useCart();
 
   const categories = [
     { id: 'platillos', name: 'Platillos' },
     { id: 'guarniciones', name: 'Guarniciones' },
-    { id: 'ensaladas', name: 'Ensaladas' },
-    { id: 'bebidas', name: 'Bebidas' },
-    { id: 'caldos', name: 'Caldos' }
+    { id: 'bebidas', name: 'Bebidas' }
   ];
 
   const menuData = {
@@ -132,7 +132,12 @@ const MenuSection = () => {
   };
 
   const handleAddClick = (productId) => {
-    console.log('Agregar producto:', productId);
+    const allItems = Object.values(menuData).flat();
+    const product = allItems.find(item => item.id === productId);
+    
+    if (product) {
+      addItem(product);
+    }
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -148,7 +153,7 @@ const MenuSection = () => {
         </h2>
         
         {/* Botones de categorías */}
-        <div className="flex justify-start gap-2 sm:gap-4 mb-6 sm:mb-12 overflow-x-auto pb-2">
+        <div className="grid grid-cols-3 sm:flex sm:justify-start gap-2 sm:gap-4 mb-6 sm:mb-12">
           {categories.map((category) => (
             <WhiteButtonMenu
               key={category.id}
@@ -169,6 +174,7 @@ const MenuSection = () => {
               title={item.title}
               description={item.description}
               price={item.price}
+              onAddClick={handleAddClick}
             />
           ))}
         </div>

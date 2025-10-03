@@ -35,25 +35,30 @@ const HeroSection = () => {
           {/* Left content */}
           <div className="w-full md:w-1/2 text-center md:text-left space-y-4 md:space-y-6 mb-8 md:mb-0">
             {/* Main heading */}
-            <h1 className="text-white text-3xl md:text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
+            {/* <h1 className="text-white text-3xl md:text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
               El verdadero sabor casero
+            </h1>*/}
+
+            {/* Main heading */}
+            <h1 className="text-white text-3xl md:text-6xl font-bold" style={{ fontFamily: 'Intel, sans-serif' }}>
+              En la Juanita iniciamos pruebas y queremos invitarte
             </h1>
             
             {/* Tags */}
             <div className="flex gap-2 md:gap-4 flex-wrap justify-center md:justify-start">
-              <WhiteTagsTrans text="Pick Up" />
+              {/*<WhiteTagsTrans text="Pick Up" />*/}
               <WhiteTagsTrans text="Lunes - viernes" />
-              <WhiteTagsTrans text="8:00 AM - 5:00 PM" />
+              <WhiteTagsTrans text="12:00 PM - 3:00 PM" />
             </div>
             
             {/* Description */}
             <p className="text-white text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-              En nuestro rincón de cocina casera, cada plato se prepara con amor, ingredientes frescos y recetas que vienen directo del corazón. Aquí no servimos solo comida… servimos recuerdos, tradición y ese sazón que solo se encuentra en casa.
+              Por darnos tu confianza en este inicio, queremos recompensarte con un precio único que no encontrarás en otro lugar, tu platillo por solo $ 99 pesos (Plato fuerte y dos guarniciones)
             </p>
             
             {/* Button */}
             <div onClick={scrollToMenu} className="flex justify-center md:justify-start">
-              <WhiteButton text="Conocer el menu" className="mt-4 md:mt-6" />
+              <WhiteButton text="Quiero ordenar" className="mt-4 md:mt-6" />
             </div>
           </div>
           

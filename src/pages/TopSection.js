@@ -1,7 +1,10 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
+import { useCart } from '../context/CartContext';
 
 const TopSection = () => {
+  const { addItem } = useCart();
+
   // Datos dummy para platillos populares
   const popularDishes = [
     {
@@ -53,8 +56,12 @@ const TopSection = () => {
   ];
 
   const handleAddClick = (productId) => {
-    console.log('Agregar producto:', productId);
-    // Aquí iría la lógica para agregar al carrito
+    const allItems = [...popularDishes, ...promotions];
+    const product = allItems.find(item => item.id === productId);
+    
+    if (product) {
+      addItem(product);
+    }
   };
 
   return (
@@ -75,6 +82,7 @@ const TopSection = () => {
               title={dish.title}
               description={dish.description}
               price={dish.price}
+              onAddClick={handleAddClick}
             />
           ))}
         </div>
@@ -94,6 +102,7 @@ const TopSection = () => {
               title={promo.title}
               description={promo.description}
               price={promo.price}
+              onAddClick={handleAddClick}
             />
           ))}
         </div>
