@@ -29,7 +29,6 @@ const Navbar = ({ onCartClick }) => {
         behavior: 'smooth'
       });
     }
-    // Close mobile menu after navigation
     setIsMobileMenuOpen(false);
   };
 
@@ -46,6 +45,7 @@ const Navbar = ({ onCartClick }) => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-center py-4">
+            
             {/* Mobile: Left side - Menu button */}
             <div className="md:hidden">
               <button 
@@ -72,12 +72,12 @@ const Navbar = ({ onCartClick }) => {
                 >
                   Inicio
                 </button>
-                {/*<button 
+                {/* <button 
                   onClick={() => scrollToSection('destacados')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
                   Destacados
-                </button>*/}
+                </button> */}
                 <button 
                   onClick={() => scrollToSection('menu')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
@@ -98,7 +98,7 @@ const Navbar = ({ onCartClick }) => {
 
               {/* Right navigation items */}
               <div className="flex items-center space-x-10">
-                {/*<button 
+                {/* <button 
                   onClick={() => scrollToSection('opiniones')}
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
@@ -115,7 +115,7 @@ const Navbar = ({ onCartClick }) => {
                   className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium cursor-pointer"
                 >
                   Redes Sociales
-                </button>*/}
+                </button> */}
                 
                 {/* Cart button - Desktop */}
                 <button
@@ -181,19 +181,19 @@ const Navbar = ({ onCartClick }) => {
               >
                 Inicio
               </button>
-              <button 
+              {/* <button 
                 onClick={() => scrollToSection('destacados')}
                 className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium text-left py-2 px-4 rounded-lg hover:bg-red-800 hover:bg-opacity-50"
               >
                 Destacados
-              </button>
+              </button> */}
               <button 
                 onClick={() => scrollToSection('menu')}
                 className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium text-left py-2 px-4 rounded-lg hover:bg-red-800 hover:bg-opacity-50"
               >
                 Menú
               </button>
-              <button 
+              {/* <button 
                 onClick={() => scrollToSection('opiniones')}
                 className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium text-left py-2 px-4 rounded-lg hover:bg-red-800 hover:bg-opacity-50"
               >
@@ -210,7 +210,7 @@ const Navbar = ({ onCartClick }) => {
                 className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium text-left py-2 px-4 rounded-lg hover:bg-red-800 hover:bg-opacity-50"
               >
                 Redes Sociales
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
