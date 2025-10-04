@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
 import { Toaster } from 'sonner';
+import { assetUrl, handleImgError } from './utils/imageHelpers';
 import Navbar from './components/Navbar';
 import HeroSection from './pages/HeroSection';
 import TopSection from './pages/TopSection';
@@ -70,44 +71,49 @@ function App() {
         {/* Watermark logo pattern - hidden on mobile */}
         <div className="absolute inset-0 pointer-events-none z-0 h-full hidden lg:block">
           {/* Primera fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-70 h-auto top-[5%] right-[0%] rotate-[15deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-70 h-auto top-[5%] right-[0%] rotate-[15deg]"
+               onError={handleImgError} />
           
           {/* Segunda fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-72 h-auto top-[15%] left-[10%] -rotate-[12deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-72 h-auto top-[15%] left-[10%] -rotate-[12deg]"
+               onError={handleImgError} />
           
           {/* Tercera fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-76 h-auto top-[25%] right-[12%] rotate-[-30deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-76 h-auto top-[25%] right-[12%] rotate-[-30deg]"
+               onError={handleImgError} />
           
           {/* Cuarta fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-72 h-auto top-[35%] left-[18%] -rotate-[-45deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-72 h-auto top-[35%] left-[18%] -rotate-[-45deg]"
+               onError={handleImgError} />
           
           {/* Quinta fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-60 h-auto top-[45%] right-[50%] rotate-[0deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-60 h-auto top-[45%] right-[50%] rotate-[0deg]"
+               onError={handleImgError} />
           
           {/* Sexta fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-76 h-auto top-[55%] left-[15%] -rotate-[15deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-76 h-auto top-[55%] left-[15%] -rotate-[15deg]"
+               onError={handleImgError} />
           
           {/* Séptima fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-80 h-auto top-[65%] right-[18%] rotate-[10deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-80 h-auto top-[65%] right-[18%] rotate-[10deg]"
+               onError={handleImgError} />
           
           {/* Octava fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-72 h-auto top-[75%] left-[12%] -rotate-[22deg]" />
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-72 h-auto top-[75%] left-[12%] -rotate-[22deg]"
+               onError={handleImgError} />
           
           {/* Novena fila */}
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-78 h-auto top-[85%] right-[14%] rotate-[16deg]" />
-          
-          {/* Décima fila 
-          <img src="/images/logo.png" alt="" 
-               className="absolute w-76 h-auto top-[95%] left-[20%] -rotate-[14deg]" />*/}
+          <img src={assetUrl('/images/logo.png')} alt="" 
+               className="absolute w-78 h-auto top-[85%] right-[14%] rotate-[16deg]"
+               onError={handleImgError} />
         </div>
 
         {/* Content */}

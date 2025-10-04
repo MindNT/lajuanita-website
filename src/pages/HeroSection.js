@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import WhiteButton from '../utils/WhiteButton';
 import WhiteTagsTrans from '../utils/WhiteTagsTrans';
 import WhiteButtonTrans from '../utils/WhiteButtonTrans';
+import { assetUrl, handleImgError } from '../utils/imageHelpers';
 
 const HeroSection = () => {
   const [activeCategory, setActiveCategory] = useState('platos fuertes');
 
   const categories = [
-    { name: 'platos fuertes', image: '/images/chilesrellenos.png' },
-    { name: 'Guarniciones', image: '/images/chilesrellenos.png' },
-    { name: 'Caldos', image: '/images/chilesrellenos.png' },
-    { name: 'Ensaladas', image: '/images/chilesrellenos.png' },
-    { name: 'Bebidas', image: '/images/chilesrellenos.png' },
-    { name: 'Postres', image: '/images/chilesrellenos.png' }
+    { name: 'platos fuertes', image: assetUrl('/images/chilesrellenos.png') },
+    { name: 'Guarniciones', image: assetUrl('/images/chilesrellenos.png') },
+    { name: 'Caldos', image: assetUrl('/images/chilesrellenos.png') },
+    { name: 'Ensaladas', image: assetUrl('/images/chilesrellenos.png') },
+    { name: 'Bebidas', image: assetUrl('/images/chilesrellenos.png') },
+    { name: 'Postres', image: assetUrl('/images/chilesrellenos.png') }
   ];
 
   const getCurrentImage = () => {
     const category = categories.find(cat => cat.name === activeCategory);
-    return category ? category.image : '/images/chilesrellenos.jpg';
+    return category ? category.image : assetUrl('/images/chilesrellenos.jpg');
   };
 
   const scrollToMenu = () => {
@@ -68,6 +69,7 @@ const HeroSection = () => {
               src={getCurrentImage()}
               alt="Comida casera" 
               className="max-w-full h-auto object-cover max-h-64 md:max-h-none"
+              onError={handleImgError}
             />
           </div>
         </div>

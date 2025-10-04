@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
+import { assetUrl, handleImgError } from '../utils/imageHelpers';
 
 const Navbar = ({ onCartClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -88,9 +89,10 @@ const Navbar = ({ onCartClick }) => {
               {/* Logo */}
               <div className="flex-shrink-0 mx-12">
                 <img 
-                  src="/images/logonavbar.png" 
+                  src={assetUrl('/images/logonavbar.png')}
                   alt="La Juanita Logo" 
                   className="h-16 w-auto object-contain"
+                  onError={handleImgError}
                 />
               </div>
 
@@ -136,9 +138,10 @@ const Navbar = ({ onCartClick }) => {
             {/* Mobile: Center - Logo */}
             <div className="md:hidden flex-shrink-0">
               <img 
-                src="/images/logonavbar.png" 
+                src={assetUrl('/images/logonavbar.png')}
                 alt="La Juanita Logo" 
                 className="h-12 w-auto object-contain"
+                onError={handleImgError}
               />
             </div>
 

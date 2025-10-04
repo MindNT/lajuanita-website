@@ -1,6 +1,7 @@
 import React from 'react';
 import WhiteButtonIcon from '../utils/WhiteButtonIcon';
 import WhiteButtonTrans from '../utils/WhiteButtonTrans';
+import { assetUrl, handleImgError } from '../utils/imageHelpers';
 
 const ModalBeta = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -35,15 +36,30 @@ const ModalBeta = ({ isOpen, onClose }) => {
 
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">
-          <img src="/images/logo.png" alt="" className="absolute w-20 sm:w-24 md:w-32 h-auto top-1 sm:top-2 md:top-4 right-1 sm:right-2 md:right-4 rotate-12" />
-          <img src="/images/logo.png" alt="" className="absolute w-16 sm:w-20 md:w-28 h-auto bottom-4 sm:bottom-6 md:bottom-8 left-1 sm:left-2 md:left-4 -rotate-12" />
+          <img 
+            src={assetUrl("/images/logo.png")} 
+            alt="" 
+            className="absolute w-20 sm:w-24 md:w-32 h-auto top-1 sm:top-2 md:top-4 right-1 sm:right-2 md:right-4 rotate-12"
+            onError={handleImgError}
+          />
+          <img 
+            src={assetUrl("/images/logo.png")} 
+            alt="" 
+            className="absolute w-16 sm:w-20 md:w-28 h-auto bottom-4 sm:bottom-6 md:bottom-8 left-1 sm:left-2 md:left-4 -rotate-12"
+            onError={handleImgError}
+          />
         </div>
 
         {/* Content */}
         <div className="relative p-4 sm:p-6 md:p-8 text-center">
           {/* Logo principal */}
           <div className="mb-3 sm:mb-4 md:mb-6">
-            <img src="/images/logo.png" alt="La Juanita" className="w-16 sm:w-20 md:w-24 h-auto mx-auto" />
+            <img 
+              src={assetUrl("/images/logo.png")} 
+              alt="La Juanita" 
+              className="w-16 sm:w-20 md:w-24 h-auto mx-auto"
+              onError={handleImgError}
+            />
           </div>
 
           {/* Título principal */}

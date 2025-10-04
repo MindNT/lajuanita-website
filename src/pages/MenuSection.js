@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import WhiteButtonMenu from '../utils/WhiteButtonMenu';
 import { useCart } from '../context/CartContext';
+import { assetUrl } from '../utils/imageHelpers';
 
 const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState('platillos');
@@ -17,21 +18,21 @@ const MenuSection = () => {
     platillos: [
       {
         id: 1,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Chiles Rellenos Tradicionales",
         description: "Chiles poblanos rellenos de queso, capeados en salsa roja.",
         price: 120
       },
       {
         id: 2,
-        image: "/images/chilesrellenos.png", 
+        image: assetUrl("/images/chilesrellenos.png"), 
         title: "Mole Poblano",
         description: "Pollo en mole tradicional con sesamo y chocolate.",
         price: 150
       },
       {
         id: 3,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Cochinita Pibil",
         description: "Cerdo marinado en achiote cocido en hoja de plátano.",
         price: 140
@@ -40,21 +41,21 @@ const MenuSection = () => {
     guarniciones: [
       {
         id: 4,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Arroz Mexicano",
         description: "Arroz rojo tradicional con verduras y especias.",
         price: 35
       },
       {
         id: 5,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Frijoles Refritos",
         description: "Frijoles negros refritos con cebolla y especias.",
         price: 30
       },
       {
         id: 6,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Plátanos Machos",
         description: "Plátanos maduros fritos con crema y queso.",
         price: 45
@@ -63,21 +64,21 @@ const MenuSection = () => {
     ensaladas: [
       {
         id: 7,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Ensalada de Nopales",
         description: "Nopales asados con jitomate, cebolla y cilantro.",
         price: 65
       },
       {
         id: 8,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Ensalada Mixta",
         description: "Lechuga, tomate, pepino y aderezo de la casa.",
         price: 55
       },
       {
         id: 9,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Pico de Gallo",
         description: "Jitomate, cebolla, chile serrano y cilantro fresco.",
         price: 40
@@ -86,21 +87,21 @@ const MenuSection = () => {
     bebidas: [
       {
         id: 10,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Agua de Horchata",
         description: "Refrescante agua de arroz con canela y azúcar.",
         price: 25
       },
       {
         id: 11,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Agua de Jamaica",
         description: "Agua fresca de flor de jamaica natural.",
         price: 25
       },
       {
         id: 12,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Refresco",
         description: "Coca Cola, Pepsi, Sprite o Fanta en lata.",
         price: 20
@@ -109,21 +110,21 @@ const MenuSection = () => {
     caldos: [
       {
         id: 13,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Caldo de Pollo",
         description: "Caldo casero con pollo, verduras y arroz.",
         price: 85
       },
       {
         id: 14,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Pozole Rojo",
         description: "Pozole tradicional con cerdo y chile guajillo.",
         price: 95
       },
       {
         id: 15,
-        image: "/images/chilesrellenos.png",
+        image: assetUrl("/images/chilesrellenos.png"),
         title: "Sopa de Tortilla",
         description: "Sopa con tiras de tortilla, chile pasilla y aguacate.",
         price: 75

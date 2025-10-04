@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
 import { useCart } from '../context/CartContext';
+import { assetUrl } from '../utils/imageHelpers';
 
 const TopSection = () => {
   const { addItem } = useCart();
@@ -9,21 +10,21 @@ const TopSection = () => {
   const popularDishes = [
     {
       id: 1,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Chiles Rellenos Tradicionales",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 120
     },
     {
       id: 2,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Chiles Rellenos de Picadillo",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 135
     },
     {
       id: 3,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Chiles Rellenos de Camarón",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 180
@@ -34,21 +35,21 @@ const TopSection = () => {
   const promotions = [
     {
       id: 1,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Combo Familiar",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 399
     },
     {
       id: 2,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Martes 2x1",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 120
     },
     {
       id: 3,
-      image: "/images/chilesrellenos.png",
+      image: assetUrl("/images/chilesrellenos.png"),
       title: "Menú Ejecutivo",
       description: "Chile poblano asado y relleno de queso derretido, capeado a mano y servido con salsa casera. ¡Sabor auténtico en cada bocado!",
       price: 149

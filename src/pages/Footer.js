@@ -1,20 +1,21 @@
 import React from 'react';
+import { assetUrl, handleImgError } from '../utils/imageHelpers';
 
 const Footer = () => {
   const socialLinks = [
     {
       name: 'Facebook',
-      icon: '/assets/facebook.svg',
+      icon: assetUrl('/assets/facebook.svg'),
       url: '#'
     },
     {
       name: 'Instagram', 
-      icon: '/assets/instagram.svg',
+      icon: assetUrl('/assets/instagram.svg'),
       url: '#'
     },
     {
       name: 'WhatsApp',
-      icon: '/assets/whatsapp.svg', 
+      icon: assetUrl('/assets/whatsapp.svg'), 
       url: '#'
     }
   ];
@@ -47,6 +48,7 @@ const Footer = () => {
                     src={social.icon} 
                     alt={social.name}
                     className="w-5 h-5 sm:w-6 sm:h-6"
+                    onError={handleImgError}
                   />
                 </a>
               ))}
@@ -72,9 +74,10 @@ const Footer = () => {
           {/* Columna 3 - Logo, Frase y MindNT */}
           <div className="flex flex-col items-center md:items-end -mt-1 sm:-mt-2">
             <img 
-              src="/images/logo.png" 
+              src={assetUrl('/images/logo.png')} 
               alt="La Juanita Logo"
               className="w-24 sm:w-28 lg:w-32 h-auto mb-3 sm:mb-4"
+              onError={handleImgError}
             />
             <p className="text-white text-base sm:text-lg font-medium text-center md:text-right mb-3 sm:mb-4 px-2 sm:px-0">
               El verdadero sabor casero

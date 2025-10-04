@@ -1,14 +1,15 @@
 import React from 'react';
+import { assetUrl, handleImgError } from '../utils/imageHelpers';
 
 const GridGallery = () => {
   const images = [
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg',
-    '/images/demoimage.jpg'
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg'),
+    assetUrl('/images/demoimage.jpg')
   ];
 
   return (
@@ -19,6 +20,7 @@ const GridGallery = () => {
           src={images[0]} 
           alt="Gallery 1" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -28,6 +30,7 @@ const GridGallery = () => {
           src={images[1]} 
           alt="Gallery 2" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -37,6 +40,7 @@ const GridGallery = () => {
           src={images[2]} 
           alt="Gallery 3" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -46,6 +50,7 @@ const GridGallery = () => {
           src={images[3]} 
           alt="Gallery 4" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -55,6 +60,7 @@ const GridGallery = () => {
           src={images[4]} 
           alt="Gallery 5" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -64,6 +70,7 @@ const GridGallery = () => {
           src={images[5]} 
           alt="Gallery 6" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
       
@@ -73,6 +80,7 @@ const GridGallery = () => {
           src={images[6]} 
           alt="Gallery 7" 
           className="w-full h-full object-cover"
+          onError={handleImgError}
         />
       </div>
     </div>
